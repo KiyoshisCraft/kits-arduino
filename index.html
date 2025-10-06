@@ -1,43 +1,564 @@
-<!-- Kit Módulos Arduino -->
-<div class="product-card">
-    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1587057175927-3b8f5cf4eeb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-    <div class="product-info">
-        <h3>Kit de Módulos para Arduino</h3>
-        <div class="price">R$ 160,00</div>
-        <div class="product-features">
-            <ul>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kits de Módulos Arduino e Kits de Robótica | Sua Loja de Eletrônica</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #e74c3c;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --success: #2ecc71;
+      --warning: #f39c12;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--secondary);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #2980b9;
+    }
+
+    /* Products Section */
+    .products {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: #777;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .product-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .product-features {
+      margin-bottom: 1.5rem;
+    }
+
+    .product-features ul {
+      list-style: none;
+    }
+
+    .product-features li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .product-features i {
+      color: var(--success);
+      margin-right: 0.5rem;
+    }
+
+    .btn-product {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.8rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-product:hover {
+      background-color: #1a252f;
+    }
+
+    .olx-badge {
+      display: inline-block;
+      background-color: #00b551;
+      color: white;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+    }
+
+    /* Components Section */
+    .components {
+      background-color: var(--light);
+      padding: 5rem 0;
+    }
+
+    .components-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .component-card {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .component-card i {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .component-card h4 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 5rem 0;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #ddd;
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    /* FAQ Section */
+    .faq {
+      background-color: var(--light);
+      padding: 5rem 0;
+    }
+
+    .faq-item {
+      margin-bottom: 1.5rem;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 1.5rem;
+      display: none;
+    }
+
+    .faq-answer.active {
+      display: block;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 5rem 0;
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: var(--secondary);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-column ul li a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--secondary);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+      }
+
+      nav ul {
+        margin-top: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">Tech<span>Kits</span></div>
+        <nav>
+          <ul>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#componentes">Componentes</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Kits Módulos Arduino e Robótica</h1>
+      <p>Desenvolva seus projetos de eletrônica e automação com nossos kits completos. Ideal para estudantes, hobbistas e profissionais.</p>
+      <a href="#produtos" class="btn">Ver Produtos</a>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products" id="produtos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nossos Kits</h2>
+        <p>Escolha o kit ideal para seu projeto</p>
+      </div>
+      <div class="products-grid">
+        <!-- Kit Módulos Arduino -->
+        <div class="product-card">
+          <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1587057175927-3b8f5cf4eeb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+          <div class="product-info">
+            <h3>Kit de Módulos para Arduino</h3>
+            <div class="price">R$ 160,00</div>
+            <div class="product-features">
+              <ul>
                 <li><i class="fas fa-check"></i> Arduino Uno R3</li>
                 <li><i class="fas fa-check"></i> Módulo WiFi ESP8266</li>
                 <li><i class="fas fa-check"></i> Sensor Ultrassônico</li>
                 <li><i class="fas fa-check"></i> Módulo Relé</li>
                 <li><i class="fas fa-check"></i> Display LCD 16x2</li>
                 <li><i class="fas fa-check"></i> +30 componentes</li>
-            </ul>
+              </ul>
+            </div>
+            <a href="https://rj.olx.com.br/norte-do-estado-do-rio/informatica/pecas-de-hardware/kits-iniciante-v4-para-arduino-modulos-para-arduino-1424958323?utm_medium=shared_link&utm_source=direct" class="btn-product" target="_blank">Comprar na OLX</a>
+            <div class="olx-badge">Compra Segura via OLX</div>
+          </div>
         </div>
-        <a href="https://rj.olx.com.br/norte-do-estado-do-rio/informatica/pecas-de-hardware/kits-iniciante-v4-para-arduino-modulos-para-arduino-1424958323?utm_medium=shared_link&utm_source=share" 
-           class="btn-product" target="_blank">Compartilhar na OLX</a>
-        <div class="olx-badge">Compra Segura via OLX</div>
-    </div>
-</div>
 
-<!-- Kit Robótica -->
-<div class="product-card">
-    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-    <div class="product-info">
-        <h3>Kit de Robótica</h3>
-        <div class="price">R$ 180,00</div>
-        <div class="product-features">
-            <ul>
+        <!-- Kit Robótica -->
+        <div class="product-card">
+          <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+          <div class="product-info">
+            <h3>Kit de Robótica</h3>
+            <div class="price">R$ 180,00</div>
+            <div class="product-features">
+              <ul>
                 <li><i class="fas fa-check"></i> Garra Robótica</li>
                 <li><i class="fas fa-check"></i> Micro Servo Motor</li>
                 <li><i class="fas fa-check"></i> Módulo Joystick</li>
                 <li><i class="fas fa-check"></i> Motor DC</li>
                 <li><i class="fas fa-check"></i> Motor de Passo</li>
                 <li><i class="fas fa-check"></i> +40 componentes</li>
-            </ul>
+              </ul>
+            </div>
+            <a href="https://rj.olx.com.br/norte-do-estado-do-rio/informatica/pecas-de-hardware/kits-arduino-iniciante-e-avancado-garra-eletronica-1424957377?utm_medium=shared_link&utm_source=direct" class="btn-product" target="_blank">Comprar na OLX</a>
+            <div class="olx-badge">Compra Segura via OLX</div>
+          </div>
         </div>
-        <a href="https://rj.olx.com.br/norte-do-estado-do-rio/informatica/pecas-de-hardware/kits-arduino-iniciante-e-avancado-garra-eletronica-1424957377?utm_medium=shared_link&utm_source=share" 
-           class="btn-product" target="_blank">Compartilhar na OLX</a>
-        <div class="olx-badge">Compra Segura via OLX</div>
+      </div>
     </div>
-</div>
+  </section>
+
+  <!-- Components Section -->
+  <section class="components" id="componentes">
+    <div class="container">
+      <div class="section-title">
+        <h2>Componentes Inclusos</h2>
+        <p>Nossos kits contêm tudo que você precisa para começar</p>
+      </div>
+      <div class="components-grid">
+        <div class="component-card">
+          <i class="fas fa-microchip"></i>
+          <h4>Arduino Uno R3</h4>
+          <p>Placa principal para seus projetos</p>
+        </div>
+        <div class="component-card">
+          <i class="fas fa-wifi"></i>
+          <h4>Módulo WiFi</h4>
+          <p>Conecte seus projetos à internet</p>
+        </div>
+        <div class="component-card">
+          <i class="fas fa-robot"></i>
+          <h4>Servo Motor</h4>
+          <p>Para movimentos precisos</p>
+        </div>
+        <div class="component-card">
+          <i class="fas fa-ruler"></i>
+          <h4>Sensor Ultrassônico</h4>
+          <p>Mede distâncias com precisão</p>
+        </div>
+        <div class="component-card">
+          <i class="fas fa-temperature-high"></i>
+          <h4>Sensor de Temperatura</h4>
+          <p>Monitore ambientes</p>
+        </div>
+        <div class="component-card">
+          <i class="fas fa-lightbulb"></i>
+          <h4>LEDs Variados</h4>
+          <p>RGB, alto brilho e cores diferentes</p>
+        </div>
+        <div class="component-card">
+          <i class="fas fa-tv"></i>
+          <h4>Display LCD</h4>
+          <p>Exiba informações</p>
+        </div>
+        <div class="component-card">
+          <i class="fas fa-bolt"></i>
+          <h4>Módulo Relé</h4>
+          <p>Controle dispositivos de alta potência</p>
+        </div>
+      </div>
+    </div>
+  </section>
